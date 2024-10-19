@@ -2,17 +2,13 @@ import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import {
-  Sun,
-  Music2,
   Youtube,
   MapPin,
-  Clock,
   Instagram,
   Facebook,
 } from 'lucide-react';
@@ -48,12 +44,18 @@ function App() {
           <h2 className="mb-6 text-4xl font-bold text-[#D4AF37]">
             PRÓXIMO SIRIO LIVE SESSION | 9 Nov
           </h2>
-          <p className="mb-6 text-lg">
+
+          {/* <p className="mb-6 text-lg">
             Grabación en Vivo de Música de Sanación y otras experiencias
             musicales extraordinarias, que también involucran el diseño y la
             vibración para una transformación colectiva a través de la Medicina
             facilitada por el Sonido.
-          </p>
+          </p> */}
+          <p className="mb-6 text-lg">¡Prepárate para una experiencia transformadora de sonido y vibración en Sirio Live Sessions! 🎶✨</p>
+<p className="mb-6 text-lg">Este 9 de noviembre, sumérgete en una jornada de conexión interior con la grabación en vivo de <em>6 bandas de Música Medicina</em>, cuyas melodías sanadoras resonarán en el Domo Sirio de Santa Elena, Antioquia.  Acompaña a <strong>La Senda del Sonido, Aramara, Caro OS, Dabeiba, Kuna Yala</strong> y <em>TAMA</em> en este viaje sonoro que quedará plasmado en nuestro canal de YouTube.</p>
+<p className="mb-6 text-lg">Además de la grabación, te espera una <em>ceremonia de cacao</em> para abrir el corazón y un <em>viaje sonoro / sound healing</em> que te guiará hacia las profundidades de tu ser.</p>
+
+<p className="mb-6 text-lg">¡No te pierdas esta oportunidad única de vibrar alto y conectar con tu esencia a través de la música y la energía! 🪘🌿</p>
           <p className="flex items-center text-lg">
             <MapPin className="mr-2 text-[#40E0D0]" />
             LUGAR: Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
