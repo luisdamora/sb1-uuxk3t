@@ -1,3 +1,4 @@
+import { IconYoutube } from "@/components/mine/IconYoutube.tsx";
 import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
 /**
  * A button component that can be used throughout the application.
@@ -14,7 +15,7 @@ import { Instagram, MapPin, Youtube } from "lucide-react";
  */
 function App() {
   return (
-    <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3]">
+    <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3] px-1">
       {/* Header */}
       {/*<header className="bg-[url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center pt-12 pb-32 text-center">*/}
       <header className="relative pt-12 pb-32 w-full overflow-hidden text-center">
@@ -88,13 +89,15 @@ function App() {
             ¡No te pierdas esta oportunidad única de vibrar alto y conectar con
             tu esencia a través de la música y la energía! 🪘🌿
           </p>
-          <p className="flex items-center text-lg">
+          <p className="flex items-center text-lg px-4">
             <MapPin className="mr-2 text-[#40E0D0]" />
             LUGAR: Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
           </p>
-          <Button className="mt-6 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0]">
-            Reserva tu lugar
-          </Button>
+          <div className="flex justify-center">
+            <Button className="mt-6 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] p-8 text-lg">
+              Reserva tu lugar
+            </Button>
+          </div>
         </div>
         <div className="mt-8 w-full lg:mt-0 lg:w-5/12">
           <img
@@ -199,22 +202,29 @@ function App() {
                 "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182159.jpg",
               link: "https://youtu.be/pDwNu_eZbLk?si=QfWGe_XQipa3tVjU",
             },
-          ].map(({ title, image }, index) => (
+          ].map(({ title, image, link }, index) => (
             <Card
               key={index}
               className="overflow-hidden transition-transform hover:scale-105 bg-[#0A1A2A] border-[#40E0D0]"
             >
-              <img
-                src={image}
-                alt={title}
-                className="h-76 w-full object-cover"
-              />
-              <CardContent className="p-4">
-                <h3 className="text-lg font-semibold text-[#D4AF37]">
-                  {title}
-                </h3>
-                {/*<p className="text-sm text-[#F5DEB3]">Artist Name</p>*/}
-              </CardContent>
+              <a href={link} target="_blank" rel="noopener noreferrer">
+                <div className="relative">
+                  <img
+                    src={image}
+                    alt={title}
+                    className="h-76 w-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <IconYoutube />
+                  </div>
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="text-lg font-semibold text-[#D4AF37]">
+                    {title}
+                  </h3>
+                  {/*<p className="text-sm text-[#F5DEB3]">Artist Name</p>*/}
+                </CardContent>
+              </a>
             </Card>
           ))}
         </div>
@@ -243,26 +253,22 @@ function App() {
           </div>
           <Separator className="my-8 bg-[#40E0D0]" />
           <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
-            <p>
-              &copy; Sirio Live Sessions © 2024. All rights reserved. Luis David
-              Moreno
-            </p>
-            <div className="flex space-x-6">
+            <p>© Sirio Live Sessions © 2024. All rights reserved. Moreno</p>
+            <div className="flex space-x-8">
               <a
                 href="https://www.youtube.com/@siriolivesessions"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Youtube className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
+                <Youtube className="h-10 w-10 text-[#D4AF37] hover:text-[#40E0D0]" />
               </a>
               <a
                 href="https://www.instagram.com/siriocasaestudio"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
+                <Instagram className="h-10 w-10 text-[#D4AF37] hover:text-[#40E0D0]" />
               </a>
-              {/*<Facebook className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />*/}
             </div>
           </div>
         </div>
