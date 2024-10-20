@@ -33,6 +33,9 @@ export interface Transaction {
 const Key: string = "";
 const divisa: string = "COP";
 
+const VAR_BOL_API_KEY_PROD = "Nbs5IVsJhT1e5m3wxgfT2g";
+const VAR_BOL_API_KEY_DEV = "Gh1EX3S9A6ePTXoyuKOjQA";
+
 // Mi función para manejar la llamada asincrónica
 (async () => {
   const cadenaConcatenada = "{Identificador}{Monto}{Divisa}{LlaveSecreta}";

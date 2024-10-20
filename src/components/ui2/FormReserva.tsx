@@ -1,6 +1,8 @@
 import useDebounce from "@/hooks/useDebounce.ts";
 import { IProducto } from "@/interfaces/IProducto.ts";
+import { useGenerarHash } from "@/services/apiGenerarHash.ts";
 import { useRegistroComprador } from "@/services/apiRegistroComprador.ts";
+import { VAR_BOLD_DEV } from "@/shared/constants.ts";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
 import { generateUUID } from "@/utils/generateUUID.ts";
 import React, { FC, useEffect, useMemo, useState } from "react";
@@ -37,7 +39,6 @@ export const FormReserva: FC = (): React.ReactNode => {
       isValid && isSuccessRegistro && !isErrorRegistro && !isPendingRegistro,
     [isValid, isSuccessRegistro, isErrorRegistro, isPendingRegistro],
   );
-  const isValidDebounce = useDebounce(isOkAll, 1500);
 
   const [data, setData] = useState<IProducto>({
     identificador: identificadorUUID,
@@ -60,9 +61,20 @@ export const FormReserva: FC = (): React.ReactNode => {
     mutateRegistro(dataDebounce);
   }, [dataDebounce]);
 
+  const [precioTotal, setPrecioTotal] = useState<number>(0);
+  const {
+    data: dataHash,
+    // isSuccess: isSuccessHash,
+    // isError: isErrorHash,
+  } = useGenerarHash({ i: identificadorUUID, m: precioTotal });
+
   useEffect(() => {
     const subscription = watch((value, { name }) => {
       // console.log(value, name, type);
+      const total = value.cantidad
+        ? value.cantidad * precioActual.valor
+        : precioActual.valor;
+      setPrecioTotal(total);
       setData((prevData) => ({
         ...prevData,
         identificador: identificadorUUID,
@@ -74,6 +86,20 @@ export const FormReserva: FC = (): React.ReactNode => {
     });
     return () => subscription.unsubscribe();
   }, [watch, precioActual.valor]);
+
+  const checkout = useMemo(
+    () =>
+      new BoldCheckout({
+        orderId: identificadorUUID,
+        currency: "COP",
+        amount: precioTotal.toFixed(0),
+        apiKey: VAR_BOLD_DEV,
+        integritySignature: dataHash?.text().toString() || "",
+        description: "Entrada Live Session | 9 Nov",
+        redirectionUrl: "https://live.siriocasaestudio.com/gracias",
+      }),
+    [data.precio_total],
+  );
 
   return (
     <div className="container mx-auto px-4 py-10 bg-cyan-50 bg-opacity-10 rounded-lg shadow-lg w-full lg:w-1/3">
@@ -158,17 +184,26 @@ export const FormReserva: FC = (): React.ReactNode => {
           <div
             className={`flex justify-center  ${!isOkAll ? "disabled:cursor-not-allowed opacity-50" : ""}`}
           >
-            <div style={{ display: isValidDebounce ? "block" : "none" }}>
-              <script
-                data-bold-button="dark-L"
-                data-api-key="LLAVE_DE_IDENTIDAD"
-              ></script>
-            </div>
-            <div style={{ display: isValidDebounce ? "none" : "block" }}>
-              <button className="bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-700 hover:to-red-600 text-white font-bold py-3 px-8 rounded-full">
-                Pagar con <span className="font-black">Bold</span>
-              </button>
-            </div>
+            {/*<div style={{ display: isValidDebounce ? "block" : "none" }}>*/}
+            {/*  <script*/}
+            {/*    data-bold-button="dark-L"*/}
+            {/*    data-api-key="LLAVE_DE_IDENTIDAD"*/}
+            {/*  ></script>*/}
+            {/*</div>*/}
+            {/*<div style={{ display: isValidDebounce ? "none" : "block" }}>*/}
+            {/*  <button className="bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-700 hover:to-red-600 text-white font-bold py-3 px-8 rounded-full">*/}
+            {/*    Pagar con <span className="font-black">Bold</span>*/}
+            {/*  </button>*/}
+            {/*</div>*/}
+
+            <button
+              className="bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-700 hover:to-red-600 text-white font-bold py-3 px-8 rounded-full"
+              onChange={() => {
+                checkout.open();
+              }}
+            >
+              Pagar con <span className="font-black">Bold</span>
+            </button>
           </div>
         </div>
 
