@@ -1,3 +1,8 @@
+export enum BoldCheckoutEnvironment {
+  PRODUCTION = "production",
+  DEVELOPMENT = "development",
+}
+
 export interface BoldCheckoutConfig {
   orderId: string;
   currency: string;
