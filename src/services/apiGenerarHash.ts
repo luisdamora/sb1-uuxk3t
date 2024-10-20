@@ -1,5 +1,5 @@
 import useDebounce from "@/hooks/useDebounce.ts";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
 export interface IGenerarHashBody {
@@ -29,6 +29,12 @@ export const useGenerarHash = (par: IGenerarHashBody) =>
   useQuery({
     queryKey: ["generarHash"],
     queryFn: () => apiGenerarHash(par),
+  });
+
+export const useGenerarHashMutation = () =>
+  useMutation({
+    mutationKey: ["generarHash"],
+    mutationFn: (par: IGenerarHashBody) => apiGenerarHash(par),
   });
 
 export const useDebounceGenerarHash = (

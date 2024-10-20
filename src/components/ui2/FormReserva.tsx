@@ -1,6 +1,9 @@
 import useDebounce from "@/hooks/useDebounce.ts";
 import { IProducto } from "@/interfaces/IProducto.ts";
-import { useGenerarHash } from "@/services/apiGenerarHash.ts";
+import {
+  useGenerarHash,
+  useGenerarHashMutation,
+} from "@/services/apiGenerarHash.ts";
 import { useRegistroComprador } from "@/services/apiRegistroComprador.ts";
 import { VAR_BOLD_DEV } from "@/shared/constants.ts";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
@@ -57,10 +60,7 @@ export const FormReserva: FC = (): React.ReactNode => {
   }, [dataDebounce]);
 
   const [precioTotal, setPrecioTotal] = useState<number>(0);
-  const { data: dataHash, refetch: refetchHash } = useGenerarHash({
-    i: identificadorUUID,
-    m: precioTotal,
-  });
+  const { data: dataHash, mutate: mutateHash } = useGenerarHashMutation();
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
@@ -69,7 +69,6 @@ export const FormReserva: FC = (): React.ReactNode => {
         ? value.cantidad * precioActual.valor
         : precioActual.valor;
       setPrecioTotal(total);
-      refetchHash().then((r) => console.log(r));
       setData((prevData) => ({
         ...prevData,
         identificador: identificadorUUID,
@@ -81,6 +80,10 @@ export const FormReserva: FC = (): React.ReactNode => {
     });
     return () => subscription.unsubscribe();
   }, [watch, precioActual.valor]);
+
+  useEffect(() => {
+    mutateHash({ i: identificadorUUID, m: precioTotal });
+  }, [identificadorUUID, precioTotal]);
 
   const checkout = useMemo(
     () =>
