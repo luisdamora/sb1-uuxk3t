@@ -21,7 +21,7 @@ function PageGracias() {
         </div>
       </header>
 
-      <section className="container mx-auto my-10 px-4">
+      <section className="container mx-auto my-2 px-4">
         <Card className="bg-[#0A1A2A] border-[#40E0D0]">
           <CardHeader>
             <CardTitle className="text-3xl text-center text-[#D4AF37]">
