@@ -1,5 +1,5 @@
-import { isBoldEnvProdDev } from "../src/shared/constants";
-import { BoldCheckoutEnvironment } from "../src/types/BoldCheckout";
+import * as constant from "../src/shared/constants";
+import * as boldTypes from "../src/types/BoldCheckout";
 
 /**
  * Configures the runtime for the Edge Function.
@@ -39,8 +39,8 @@ const divisa: string = "COP";
 const VAR_BOL_API_KEY_PROD = "Nbs5IVsJhT1e5m3wxgfT2g";
 const VAR_BOL_API_KEY_DEV = "Gh1EX3S9A6ePTXoyuKOjQA";
 
-function getKeyEnv(env: BoldCheckoutEnvironment): string {
-  if (env === BoldCheckoutEnvironment.PRODUCTION) {
+function getKeyEnv(env: boldTypes.BoldCheckoutEnvironment): string {
+  if (env === boldTypes.BoldCheckoutEnvironment.PRODUCTION) {
     return VAR_BOL_API_KEY_PROD;
   }
   return VAR_BOL_API_KEY_DEV;
@@ -63,7 +63,7 @@ export default async (request: Request) => {
   }
 
   const { i: identificador, m: monto } = (await request.json()) as Transaction;
-  const cadenaConcatenada = `${identificador}${monto}${divisa}${getKeyEnv(isBoldEnvProdDev)}`;
+  const cadenaConcatenada = `${identificador}${monto}${divisa}${getKeyEnv(constant.isBoldEnvProdDev)}`;
   const hashHex = await generateHash(cadenaConcatenada);
 
   return new Response(hashHex);
