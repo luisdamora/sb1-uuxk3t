@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button.tsx";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
 import React, { FC } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -7,7 +6,7 @@ interface FormInputs {
   nombre: string;
   email: string;
   celular: string;
-  cantidad: string;
+  cantidad: number;
 }
 
 export const FormReserva: FC = (): React.ReactNode => {

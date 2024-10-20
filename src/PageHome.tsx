@@ -13,7 +13,6 @@ import imagenCancionArbol from "@assets/images/musicos/cancion_arbol.jpg";
 import imagenCancionClaridad from "@assets/images/musicos/cancion_claridad.jpg";
 import imagenCancionSelva from "@assets/images/musicos/cancion_la_selva.jpg";
 import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg";
-import imagenLogoWhatsapp from "@assets/images/whatsapp.svg";
 
 import { FormReserva } from "@/components/ui2/FormReserva.tsx";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
