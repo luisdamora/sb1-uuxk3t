@@ -24,6 +24,7 @@ export const FormReserva: FC = (): React.ReactNode => {
     watch,
   } = useForm<FormInputs>({
     defaultValues: { cantidad: 1, celular: "", email: "", nombre: "" },
+    mode: "onBlur",
   });
   const identificadorUUID = useMemo(() => generateUUID(), []);
   const precioActual = obtenerPrecioActual();
@@ -94,7 +95,7 @@ export const FormReserva: FC = (): React.ReactNode => {
         description: "Entrada Live Session | 9 Nov",
         redirectionUrl: "https://live.siriocasaestudio.com/gracias",
       }),
-    [data.precio_total],
+    [identificadorUUID, precioTotal, dataHash],
   );
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
