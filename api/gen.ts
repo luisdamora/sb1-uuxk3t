@@ -1,12 +1,17 @@
-import * as constant from "../src/shared/constants";
-import * as boldTypes from "../src/types/BoldCheckout";
-
 /**
  * Configures the runtime for the Edge Function.
  */
 export const config = {
   runtime: "edge",
 };
+
+enum BoldCheckoutEnvironment {
+  PRODUCTION = "production",
+  DEVELOPMENT = "development",
+}
+
+const isBoldEnvProdDev: BoldCheckoutEnvironment =
+  BoldCheckoutEnvironment.DEVELOPMENT;
 
 // Función asincrónica para generar el hash SHA-256
 async function generateHash(cadena) {
@@ -39,8 +44,8 @@ const divisa: string = "COP";
 const VAR_BOL_API_KEY_PROD = "Nbs5IVsJhT1e5m3wxgfT2g";
 const VAR_BOL_API_KEY_DEV = "Gh1EX3S9A6ePTXoyuKOjQA";
 
-function getKeyEnv(env: boldTypes.BoldCheckoutEnvironment): string {
-  if (env === boldTypes.BoldCheckoutEnvironment.PRODUCTION) {
+function getKeyEnv(env: BoldCheckoutEnvironment): string {
+  if (env === BoldCheckoutEnvironment.PRODUCTION) {
     return VAR_BOL_API_KEY_PROD;
   }
   return VAR_BOL_API_KEY_DEV;
@@ -63,7 +68,7 @@ export default async (request: Request) => {
   }
 
   const { i: identificador, m: monto } = (await request.json()) as Transaction;
-  const cadenaConcatenada = `${identificador}${monto}${divisa}${getKeyEnv(constant.isBoldEnvProdDev)}`;
+  const cadenaConcatenada = `${identificador}${monto}${divisa}${getKeyEnv(isBoldEnvProdDev)}`;
   const hashHex = await generateHash(cadenaConcatenada);
 
   return new Response(hashHex);
