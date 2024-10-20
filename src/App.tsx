@@ -1,8 +1,5 @@
 import { IconYoutube } from "@/components/mine/IconYoutube.tsx";
 import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
-/**
- * A button component that can be used throughout the application.
- */
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
