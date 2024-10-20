@@ -2,7 +2,7 @@ import useDebounce from "@/hooks/useDebounce.ts";
 import { IProducto } from "@/interfaces/IProducto.ts";
 import { useGenerarHashMutation } from "@/services/apiGenerarHash.ts";
 import { useRegistroComprador } from "@/services/apiRegistroComprador.ts";
-import { VAR_BOLD_DEV, isBoldEnvProdDev } from "@/shared/constants.ts";
+import { isBoldEnvProdDev } from "@/shared/constants.ts";
 import getBoldApiKey from "@/shared/getBoldApiKey.ts";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
 import { generateUUID } from "@/utils/generateUUID.ts";
