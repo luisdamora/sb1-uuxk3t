@@ -10,6 +10,8 @@ export const VAR_WHATSAPP_PHONE = "573022349573";
  */
 export const VAR_WHATSAPP_PHONE_TEXT = "+57 3022349573";
 
+export const VAR_EMAIL_CONTACT = "info@siriocasaestudio.com";
+
 /**
  * The production environment variable for Bold Checkout.
  */

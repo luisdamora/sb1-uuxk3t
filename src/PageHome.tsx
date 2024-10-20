@@ -1,12 +1,9 @@
-import { IconYoutube } from "@/components/mine/IconYoutube.tsx";
+import {IconYoutube} from "@/components/mine/IconYoutube.tsx";
 import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import {
-  VAR_WHATSAPP_PHONE,
-  VAR_WHATSAPP_PHONE_TEXT,
-} from "@/shared/constants.ts";
+import {Button} from "@/components/ui/button";
+import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
+import {Separator} from "@/components/ui/separator";
+import {VAR_EMAIL_CONTACT, VAR_WHATSAPP_PHONE, VAR_WHATSAPP_PHONE_TEXT,} from "@/shared/constants.ts";
 import imagenLivePost from "@assets/images/live_9_nov_.jpg";
 import imagenLogoSirio from "@assets/images/logo.png";
 import imagenCancionArbol from "@assets/images/musicos/cancion_arbol.jpg";
@@ -14,12 +11,12 @@ import imagenCancionClaridad from "@assets/images/musicos/cancion_claridad.jpg";
 import imagenCancionSelva from "@assets/images/musicos/cancion_la_selva.jpg";
 import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg";
 
-import { FormReserva } from "@/components/ui2/FormReserva.tsx";
-import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
-import { EEtapa, IEtapa } from "@/types/IEtapa.ts";
+import {FormReserva} from "@/components/ui2/FormReserva.tsx";
+import {obtenerPrecioActual} from "@/shared/obtenerPrecioActual.ts";
+import {EEtapa, IEtapa} from "@/types/IEtapa.ts";
 import videoHeader from "@assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4";
-import { Instagram, MapPin, Youtube } from "lucide-react";
-import { useCallback, useMemo, useRef, useState } from "react";
+import {Instagram, MapPin, Youtube} from "lucide-react";
+import {useCallback, useMemo, useRef, useState} from "react";
 
 /**
  * The main App component that renders the entire application.
@@ -41,7 +38,7 @@ function PageHome() {
         sectionReservaRef.current.focus();
       }
     }, 450);
-  }, [sectionReservaRef]);
+  }, [sectionReservaRef, setOpenSectionReserva]);
 
   const musicaMedicinaCards = useMemo(
     () => [
@@ -177,7 +174,7 @@ function PageHome() {
               rel="noopener noreferrer"
               className="underline"
             >
-              +57 300 123 4567
+              {VAR_WHATSAPP_PHONE_TEXT}
             </a>
           </p>
           <div className="flex justify-center">
@@ -354,7 +351,9 @@ function PageHome() {
 
               <p className="text-lg">{VAR_WHATSAPP_PHONE_TEXT}</p>
 
-              <p className="text-lg">info@siriolivesessions.com</p>
+              <p className="text-lg">
+                <a href={`mailto:${VAR_EMAIL_CONTACT}`}>{VAR_EMAIL_CONTACT}</a>
+              </p>
             </div>
           </div>
           <Separator className="my-8 bg-[#40E0D0]" />
