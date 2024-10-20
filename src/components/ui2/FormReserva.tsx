@@ -2,7 +2,8 @@ import useDebounce from "@/hooks/useDebounce.ts";
 import { IProducto } from "@/interfaces/IProducto.ts";
 import { useGenerarHashMutation } from "@/services/apiGenerarHash.ts";
 import { useRegistroComprador } from "@/services/apiRegistroComprador.ts";
-import { VAR_BOLD_DEV } from "@/shared/constants.ts";
+import { VAR_BOLD_DEV, isBoldEnvProdDev } from "@/shared/constants.ts";
+import getBoldApiKey from "@/shared/getBoldApiKey.ts";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
 import { generateUUID } from "@/utils/generateUUID.ts";
 import React, { FC, useEffect, useMemo, useState } from "react";
@@ -56,7 +57,7 @@ export const FormReserva: FC = (): React.ReactNode => {
     mutateRegistro(dataDebounce);
   }, [dataDebounce]);
 
-  const [precioTotal, setPrecioTotal] = useState<number>(0);
+  const [precioTotal, setPrecioTotal] = useState<number>(precioActual.valor);
   const { data: dataHash, mutate: mutateHash } = useGenerarHashMutation();
 
   useEffect(() => {
@@ -88,7 +89,7 @@ export const FormReserva: FC = (): React.ReactNode => {
         orderId: identificadorUUID,
         currency: "COP",
         amount: precioTotal.toFixed(0),
-        apiKey: VAR_BOLD_DEV,
+        apiKey: getBoldApiKey(isBoldEnvProdDev),
         integritySignature: dataHash?.toString() || "",
         description: "Entrada Live Session | 9 Nov",
         redirectionUrl: "https://live.siriocasaestudio.com/gracias",
