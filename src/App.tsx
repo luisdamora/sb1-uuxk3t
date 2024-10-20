@@ -13,6 +13,7 @@ import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg"
 
 import { FormReserva } from "@/components/ui2/FormReserva.tsx";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
+import { EEtapa, IEtapa } from "@/types/IEtapa.ts";
 import videoHeader from "@assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4";
 import { Instagram, MapPin, Youtube } from "lucide-react";
 import { useCallback, useMemo, useRef, useState } from "react";
@@ -60,24 +61,24 @@ function App() {
     [],
   );
 
-  const pricingData = useMemo(
+  const pricingData = useMemo<IEtapa[]>(
     () => [
       {
-        etapa: "a",
+        etapa: EEtapa.ETAPA_1,
         title: "Lanzamiento",
         deadline: "31 de octubre",
         price: "$120.000",
         mount: 120000,
       },
       {
-        etapa: "b",
+        etapa: EEtapa.ETAPA_2,
         title: "Fans",
         deadline: "8 de noviembre",
         price: "$160.000",
         mount: 160000,
       },
       {
-        etapa: "c",
+        etapa: EEtapa.ETAPA_3,
         title: "Puerta",
         deadline: "9 de noviembre",
         price: "$180.000",
@@ -86,8 +87,6 @@ function App() {
     ],
     [],
   );
-
-  const precioActual = useMemo(() => obtenerPrecioActual(), []);
 
   return (
     <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3] px-1">
@@ -194,7 +193,7 @@ function App() {
             {pricingData.map((item, index) => (
               <div key={index} className="w-full sm:w-1/3 px-4 mb-8">
                 <div
-                  className={`bg-[#0A1A2A] border border-[#40E0D0] rounded-lg p-6 text-center ${item.tipo === obtenerPrecioActual().tipo ? "opacity-50 cursor-not-allowed" : ""}`}
+                  className={`bg-[#0A1A2A] border border-[#40E0D0] rounded-lg p-6 text-center ${item.etapa !== obtenerPrecioActual().tipo ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                   <h3 className="text-xl font-bold text-[#D4AF37] mb-4">
                     {item.title}
@@ -206,6 +205,14 @@ function App() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="flex justify-center">
+            <Button
+              className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-16 text-2xl"
+              onClick={handleReserva}
+            >
+              COMPRA TUS BOLETAS
+            </Button>
           </div>
         </div>
       </section>
