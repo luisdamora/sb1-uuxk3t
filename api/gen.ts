@@ -27,10 +27,11 @@ async function generateHash(cadena) {
 export interface Transaction {
   i: string; // Identificador: string;
   m: number; // Monto: number;
-  d: string; // Divisa: string;
+  // d: string; // Divisa: string;
 }
 
 const Key: string = "";
+const divisa: string = "COP";
 
 // Mi función para manejar la llamada asincrónica
 (async () => {
@@ -41,11 +42,22 @@ const Key: string = "";
 
 /**
  * Handles the incoming request and returns a response with a greeting message.
+ *  {Identificador}{Monto}{Divisa}{LlaveSecreta}
+ *
  * @param request - The incoming HTTP request.
  * @returns A Response object with the greeting message.
  */
 export default async (request: Request) => {
-  const cadenaConcatenada = "{Identificador}{Monto}{Divisa}{LlaveSecreta}";
+  if (request.method === "GET") {
+    return new Response("Hello, World!");
+  }
+
+  if (request.method !== "POST") {
+    return new Response("Method not allowed", { status: 405 });
+  }
+
+  const { i: identificador, m: monto } = (await request.json()) as Transaction;
+  const cadenaConcatenada = `${identificador}${monto}${divisa}${Key}`;
   const hashHex = await generateHash(cadenaConcatenada);
 
   return new Response(hashHex);
