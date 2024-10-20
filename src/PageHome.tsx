@@ -3,13 +3,17 @@ import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { VAR_WHATSAPP_PHONE_TEXT } from "@/shared/constants.ts";
+import {
+  VAR_WHATSAPP_PHONE,
+  VAR_WHATSAPP_PHONE_TEXT,
+} from "@/shared/constants.ts";
 import imagenLivePost from "@assets/images/live_9_nov_.jpg";
 import imagenLogoSirio from "@assets/images/logo.png";
 import imagenCancionArbol from "@assets/images/musicos/cancion_arbol.jpg";
 import imagenCancionClaridad from "@assets/images/musicos/cancion_claridad.jpg";
 import imagenCancionSelva from "@assets/images/musicos/cancion_la_selva.jpg";
 import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg";
+import imagenLogoWhatsapp from "@assets/images/whatsapp.svg";
 
 import { FormReserva } from "@/components/ui2/FormReserva.tsx";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
@@ -167,6 +171,17 @@ function PageHome() {
           <p className="flex items-center text-lg px-4">
             <MapPin className="mr-2 text-[#40E0D0]" />
             LUGAR: Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
+          </p>
+          <p className="flex items-center text-lg pl-12 my-2">
+            <strong className="pr-2">CONTACTO: </strong>{" "}
+            <a
+              href={`https://wa.me/${VAR_WHATSAPP_PHONE}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              +57 300 123 4567
+            </a>
           </p>
           <div className="flex justify-center">
             <Button
