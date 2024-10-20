@@ -57,11 +57,10 @@ export const FormReserva: FC = (): React.ReactNode => {
   }, [dataDebounce]);
 
   const [precioTotal, setPrecioTotal] = useState<number>(0);
-  const {
-    data: dataHash,
-    // isSuccess: isSuccessHash,
-    // isError: isErrorHash,
-  } = useGenerarHash({ i: identificadorUUID, m: precioTotal });
+  const { data: dataHash, refetch: refetchHash } = useGenerarHash({
+    i: identificadorUUID,
+    m: precioTotal,
+  });
 
   useEffect(() => {
     const subscription = watch((value, { name }) => {
@@ -70,6 +69,7 @@ export const FormReserva: FC = (): React.ReactNode => {
         ? value.cantidad * precioActual.valor
         : precioActual.valor;
       setPrecioTotal(total);
+      refetchHash().then((r) => console.log(r));
       setData((prevData) => ({
         ...prevData,
         identificador: identificadorUUID,

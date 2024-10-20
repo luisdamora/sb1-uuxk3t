@@ -38,7 +38,6 @@ export interface Transaction {
   // d: string; // Divisa: string;
 }
 
-const Key: string = "";
 const divisa: string = "COP";
 
 const VAR_BOL_API_KEY_PROD = "Nbs5IVsJhT1e5m3wxgfT2g";
