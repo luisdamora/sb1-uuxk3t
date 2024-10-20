@@ -46,6 +46,25 @@ export const FormReserva: FC<Props> = ({}): React.ReactNode => {
             required
           />
         </div>
+
+        <div className="mb-6">
+          <label htmlFor="cantidad" className="block mb-2 text-lg">
+            Cantidad
+          </label>
+          <select
+            id="cantidad"
+            name="cantidad"
+            className="w-full px-3 py-2 text-[#0A1A2A] bg-white border border-[#40E0D0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+            required
+          >
+            {[...Array(10)].map((_, i) => (
+              <option key={i + 1} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <div className="flex justify-center">
           <Button
             type="submit"

@@ -12,6 +12,7 @@ import imagenCancionSelva from "@assets/images/musicos/cancion_la_selva.jpg";
 import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg";
 
 import { FormReserva } from "@/components/ui2/FormReserva.tsx";
+import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
 import videoHeader from "@assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4";
 import { Instagram, MapPin, Youtube } from "lucide-react";
 import { useCallback, useMemo, useRef, useState } from "react";
@@ -58,6 +59,35 @@ function App() {
     ],
     [],
   );
+
+  const pricingData = useMemo(
+    () => [
+      {
+        etapa: "a",
+        title: "Lanzamiento",
+        deadline: "31 de octubre",
+        price: "$120.000",
+        mount: 120000,
+      },
+      {
+        etapa: "b",
+        title: "Fans",
+        deadline: "8 de noviembre",
+        price: "$160.000",
+        mount: 160000,
+      },
+      {
+        etapa: "c",
+        title: "Puerta",
+        deadline: "9 de noviembre",
+        price: "$180.000",
+        mount: 180000,
+      },
+    ],
+    [],
+  );
+
+  const precioActual = useMemo(() => obtenerPrecioActual(), []);
 
   return (
     <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3] px-1">
@@ -152,6 +182,31 @@ function App() {
             alt="Event Poster"
             className="rounded-lg shadow-lg"
           />
+        </div>
+      </section>
+
+      <section className="bg-[#0A1A2A] py-10">
+        <div className="container mx-auto px-12">
+          <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
+            Fechas de Lanzamiento y Precios
+          </h2>
+          <div className="flex flex-wrap justify-center">
+            {pricingData.map((item, index) => (
+              <div key={index} className="w-full sm:w-1/3 px-4 mb-8">
+                <div
+                  className={`bg-[#0A1A2A] border border-[#40E0D0] rounded-lg p-6 text-center ${item.tipo === obtenerPrecioActual().tipo ? "opacity-50 cursor-not-allowed" : ""}`}
+                >
+                  <h3 className="text-xl font-bold text-[#D4AF37] mb-4">
+                    {item.title}
+                  </h3>
+                  <p className="text-lg mb-2">Fecha límite: {item.deadline}</p>
+                  <p className="text-2xl font-bold text-[#40E0D0]">
+                    {item.price}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
