@@ -151,10 +151,8 @@ function PageHome() {
             con la grabación en vivo de <em>6 bandas de Música Medicina</em>,
             cuyas melodías sanadoras resonarán en el Domo Sirio de Santa Elena,
             Antioquia. Acompaña a{" "}
-            <strong>
-              La Senda del Sonido, Aramara, Caro OS, Dabeiba, Kuna Yala
-            </strong>{" "}
-            y <em>TAMA</em> en este viaje sonoro que quedará plasmado en nuestro
+            <strong>Aramara, Caro OS, Dabeiba, Kuna Yala</strong> y{" "}
+            <em>TAMA</em> en este viaje sonoro que quedará plasmado en nuestro
             canal de YouTube.
           </p>
           <p className="mb-6 text-lg">
