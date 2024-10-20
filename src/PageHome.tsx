@@ -108,7 +108,7 @@ function PageHome() {
           <source src={videoHeader} type="video/mp4" />
           {/*<source src="" type="video/mp4" />*/}
         </video>
-        <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-8">
+        <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-8 px-2">
           {/* <Sun className="mx-auto mb-6 h-24 w-24 text-[#D4AF37]" /> */}
           <img
             // src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/logo.png"
@@ -224,7 +224,7 @@ function PageHome() {
           </div>
           <div className="flex justify-center">
             <Button
-              className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-16 text-2xl"
+              className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-12 text-2xl mx-2"
               onClick={handleReserva}
             >
               COMPRA TUS BOLETAS
@@ -282,7 +282,7 @@ function PageHome() {
           sostienen esta transformación que estamos viviendo a través de la
           Medicina de la Música
         </p>
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 px-2">
           {[
             {
               title: "ARBOL",

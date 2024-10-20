@@ -13,7 +13,7 @@ const WhatsAppBubble: React.FC = () => {
 
   return (
     <div
-      className="fixed bottom-6 right-8 z-50 cursor-pointer rounded-full bg-green-500 p-4 shadow-lg transition-transform hover:scale-110"
+      className="fixed bottom-6 right-8 z-50 cursor-pointer rounded-full bg-green-500 p-4 shadow-lg transition-transform hover:scale-110 animate-wiggle"
       onClick={openWhatsApp}
     >
       <img src={waIcon} alt="WhatsApp" className="h-8 w-8 fill-white" />
