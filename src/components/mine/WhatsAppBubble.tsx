@@ -1,4 +1,5 @@
 import { VAR_WHATSAPP_PHONE } from "@/shared/constants.ts";
+import waIcon from "@assets/images/whatsapp.svg";
 import React from "react";
 
 /**
@@ -15,11 +16,7 @@ const WhatsAppBubble: React.FC = () => {
       className="fixed bottom-6 right-8 z-50 cursor-pointer rounded-full bg-green-500 p-4 shadow-lg transition-transform hover:scale-110"
       onClick={openWhatsApp}
     >
-      <img
-        src="src/assets/images/whatsapp.svg"
-        alt="WhatsApp"
-        className="h-8 w-8 fill-white"
-      />
+      <img src={waIcon} alt="WhatsApp" className="h-8 w-8 fill-white" />
     </div>
   );
 };

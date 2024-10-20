@@ -4,6 +4,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { VAR_WHATSAPP_PHONE_TEXT } from "@/shared/constants.ts";
+import imagenLivePost from "@assets/images/live_9_nov_.jpg";
+import imagenLogoSirio from "@assets/images/logo.png";
+import imagenCancionArbol from "@assets/images/musicos/cancion_arbol.jpg";
+import imagenCancionClaridad from "@assets/images/musicos/cancion_claridad.jpg";
+import imagenCancionSelva from "@assets/images/musicos/cancion_la_selva.jpg";
+import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg";
+
+import videoHeader from "@assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4";
 import { Instagram, MapPin, Youtube } from "lucide-react";
 
 /**
@@ -24,15 +32,14 @@ function App() {
           muted
           playsInline
         >
-          <source
-            src="/src/assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4"
-            type="video/mp4"
-          />
+          <source src={videoHeader} type="video/mp4" />
+          {/*<source src="" type="video/mp4" />*/}
         </video>
         <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-8">
           {/* <Sun className="mx-auto mb-6 h-24 w-24 text-[#D4AF37]" /> */}
           <img
-            src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/logo.png"
+            // src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/logo.png"
+            src={imagenLogoSirio}
             alt="Logo"
             className="mx-auto mb-6 h-56 w-56"
           />
@@ -99,7 +106,7 @@ function App() {
         </div>
         <div className="mt-8 w-full lg:mt-0 lg:w-5/12">
           <img
-            src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/10/live_9_nov_.jpg"
+            src={imagenLivePost}
             alt="Event Poster"
             className="rounded-lg shadow-lg"
           />
@@ -178,26 +185,26 @@ function App() {
           {[
             {
               title: "ARBOL",
-              image:
-                "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182348.jpg",
+              image: imagenCancionArbol,
+              // "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182348.jpg",
               link: "https://youtu.be/IWihRGNvdnI?si=PKryC7doRK8qB3ob",
             },
             {
               title: "LA SEMILLA",
-              image:
-                "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182323.jpg",
+              image: imagenCancionSemilla,
+              // "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182323.jpg",
               link: "https://youtu.be/J-83VdGcWyc?si=8hA-Rt22zWQQAW4k",
             },
             {
               title: "CLARIDAD",
-              image:
-                "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182300.jpg",
+              image: imagenCancionClaridad,
+              // "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182300.jpg",
               link: "https://youtu.be/ffS2YzjZY8Q?si=d4FoDiqEHevQalNj",
             },
             {
               title: "LA SELVA SE LEVANTA",
-              image:
-                "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182159.jpg",
+              image: imagenCancionSelva,
+              // "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182159.jpg",
               link: "https://youtu.be/pDwNu_eZbLk?si=QfWGe_XQipa3tVjU",
             },
           ].map(({ title, image, link }, index) => (

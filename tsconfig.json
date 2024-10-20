@@ -7,9 +7,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@assets/*": ["./src/assets/*"]
     },
-    "noUnusedLocals": false, // Disable checking for unused local variables
-    "noUnusedParameters": false // Disable checking for unused parameters
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
   }
 }
