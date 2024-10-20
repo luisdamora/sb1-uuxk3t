@@ -3,6 +3,7 @@ import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { VAR_WHATSAPP_PHONE_TEXT } from "@/shared/constants.ts";
 import { Instagram, MapPin, Youtube } from "lucide-react";
 
 /**
@@ -15,7 +16,7 @@ function App() {
     <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3] px-1">
       {/* Header */}
       {/*<header className="bg-[url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center pt-12 pb-32 text-center">*/}
-      <header className="relative pt-12 pb-32 w-full overflow-hidden text-center">
+      <header className="relative pt-20 pb-20 w-full overflow-hidden text-center">
         <video
           className="absolute top-0 left-0 min-h-full min-w-full object-cover"
           autoPlay
@@ -24,11 +25,11 @@ function App() {
           playsInline
         >
           <source
-            src="src/assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4"
+            src="/src/assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4"
             type="video/mp4"
           />
         </video>
-        <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-16">
+        <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-8">
           {/* <Sun className="mx-auto mb-6 h-24 w-24 text-[#D4AF37]" /> */}
           <img
             src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/logo.png"
@@ -43,13 +44,13 @@ function App() {
             Somos la Banda Sonora del Nuevo Tiempo y la Nueva Humanidad
           </p>
           <p className="text-2xl font-semibold text-[#40E0D0]">
-            PRÓXIMA EXPERIENCIA EN VIVO | 9 noviembre
+            PRÓXIMA EXPERIENCIA EN VIVO | 9 Noviembre
           </p>
         </div>
       </header>
 
       {/* Next Session */}
-      <section className="container mx-auto my-20 flex flex-wrap items-center justify-between px-4">
+      <section className="container mx-auto my-10 flex flex-wrap items-center justify-between px-4">
         <div className="w-full lg:w-1/2">
           <h2 className="mb-6 text-4xl font-bold text-[#D4AF37]">
             PRÓXIMO SIRIO LIVE SESSION | 9 Nov
@@ -91,7 +92,7 @@ function App() {
             LUGAR: Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
           </p>
           <div className="flex justify-center">
-            <Button className="mt-6 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] p-8 text-lg">
+            <Button className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-16 text-2xl">
               Reserva tu lugar
             </Button>
           </div>
@@ -106,7 +107,7 @@ function App() {
       </section>
 
       {/* Música Medicina y Consciente */}
-      <section className="bg-[#0A1A2A] py-20">
+      <section className="bg-[#0A1A2A] py-10">
         <div className="container mx-auto px-4">
           <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
             Música Medicina y Consciente
@@ -163,7 +164,7 @@ function App() {
       </section>
 
       {/* YouTube Channel */}
-      <section className="container mx-auto my-20 px-4">
+      <section className="container mx-auto my-10 px-4">
         <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
           NUESTRO CANAL EN YOUTUBE
         </h2>
@@ -244,7 +245,9 @@ function App() {
               <h4 className="mb-3 text-xl font-semibold text-[#D4AF37]">
                 Contacto
               </h4>
-              <p className="text-lg">+57 305 939 2670</p>
+
+              <p className="text-lg">{VAR_WHATSAPP_PHONE_TEXT}</p>
+
               <p className="text-lg">info@siriolivesessions.com</p>
             </div>
           </div>
