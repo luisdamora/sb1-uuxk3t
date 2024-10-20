@@ -54,6 +54,9 @@ export const FormReserva: FC<Props> = ({}): React.ReactNode => {
             Ir a pagar
           </Button>
         </div>
+        <div className="flex justify-center">
+          <script data-bold-button data-api-key="LLAVE_DE_IDENTIDAD"></script>
+        </div>
       </form>
     </div>
   );
