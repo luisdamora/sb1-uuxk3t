@@ -13,6 +13,7 @@ import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg"
 
 import videoHeader from "@assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4";
 import { Instagram, MapPin, Youtube } from "lucide-react";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 /**
  * The main App component that renders the entire application.
@@ -20,6 +21,43 @@ import { Instagram, MapPin, Youtube } from "lucide-react";
  * The component is responsible for the overall layout and structure of the application.
  */
 function App() {
+  const sectionReservaRef = useRef<HTMLDivElement>(null);
+
+  const [openSectionReserva, setOpenSectionReserva] = useState<boolean>(false);
+  const handleReserva = useCallback(() => {
+    setOpenSectionReserva(true);
+
+    // set timeout focus
+    setTimeout(() => {
+      if (sectionReservaRef.current) {
+        sectionReservaRef.current.scrollIntoView({ behavior: "smooth" });
+
+        sectionReservaRef.current.focus();
+      }
+    }, 450);
+  }, [sectionReservaRef]);
+
+  const musicaMedicinaCards = useMemo(
+    () => [
+      {
+        title: "Colaboraciones entre Artistas",
+        content:
+          "Unimos artistas y comunidad para manifestar la Banda Sonora del Nuevo Tiempo y la nueva Humanidad.",
+      },
+      {
+        title: "Sesiones en Vivo",
+        content:
+          "Disfruta de nuestras sesiones de grabación en vivo con bandas de música medicina y consciente de la magia que creamos juntos al grabar en vivo.",
+      },
+      {
+        title: "Conexión Interior",
+        content:
+          "Vive experiencias sensoriales que propagan la conexión con el interior y la sanación profunda a través de la vibración y el sonido.",
+      },
+    ],
+    [],
+  );
+
   return (
     <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3] px-1">
       {/* Header */}
@@ -99,7 +137,10 @@ function App() {
             LUGAR: Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
           </p>
           <div className="flex justify-center">
-            <Button className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-16 text-2xl">
+            <Button
+              className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-16 text-2xl"
+              onClick={handleReserva}
+            >
               Reserva tu lugar
             </Button>
           </div>
@@ -110,6 +151,65 @@ function App() {
             alt="Event Poster"
             className="rounded-lg shadow-lg"
           />
+        </div>
+      </section>
+
+      {/* Reserva de lugar */}
+      <section
+        ref={sectionReservaRef}
+        id="section-reserva"
+        style={{ display: openSectionReserva ? "block" : "none" }}
+      >
+        <div className="container mx-auto px-4 py-10 bg-cyan-50 bg-opacity-10 rounded-lg shadow-lg w-full lg:w-1/3">
+          <h2 className="mb-8 text-center text-3xl font-bold text-[#D4AF37]">
+            Reserva tu lugar
+          </h2>
+          <form className="max-w-md mx-auto">
+            <div className="mb-4">
+              <label htmlFor="nombre" className="block mb-2 text-lg">
+                Nombre
+              </label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                className="w-full px-3 py-2 text-[#0A1A2A] bg-white border border-[#40E0D0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="email" className="block mb-2 text-lg">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                className="w-full px-3 py-2 text-[#0A1A2A] bg-white border border-[#40E0D0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+                required
+              />
+            </div>
+            <div className="mb-6">
+              <label htmlFor="celular" className="block mb-2 text-lg">
+                Celular
+              </label>
+              <input
+                type="tel"
+                id="celular"
+                name="celular"
+                className="w-full px-3 py-2 text-[#0A1A2A] bg-white border border-[#40E0D0] rounded-md focus:outline-none focus:ring-2 focus:ring-[#D4AF37]"
+                required
+              />
+            </div>
+            <div className="flex justify-center">
+              <Button
+                type="submit"
+                className="bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-4 px-8 text-xl"
+              >
+                Ir a pagar
+              </Button>
+            </div>
+          </form>
         </div>
       </section>
 
@@ -125,47 +225,19 @@ function App() {
           </p>
 
           <div className="flex flex-wrap justify-center">
-            <Card className="m-4 w-full max-w-sm bg-[#0A1A2A] border-[#40E0D0] transition-transform hover:scale-105">
-              <CardHeader>
-                <CardTitle className="text-[#D4AF37]">
-                  Colaboraciones entre Artistas
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Unimos artistas y comunidad para manifestar la Banda Sonora
-                  del Nuevo Tiempo y la nueva Humanidad.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="m-4 w-full max-w-sm bg-[#0A1A2A] border-[#40E0D0] transition-transform hover:scale-105">
-              <CardHeader>
-                <CardTitle className="text-[#D4AF37]">
-                  Sesiones en Vivo
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Disfruta de nuestras sesiones de grabación en vivo con bandas
-                  de música medicina y consciente de la magia que creamos juntos
-                  al grabar en vivo.
-                </p>
-              </CardContent>
-            </Card>
-            <Card className="m-4 w-full max-w-sm bg-[#0A1A2A] border-[#40E0D0] transition-transform hover:scale-105">
-              <CardHeader>
-                <CardTitle className="text-[#D4AF37]">
-                  Conexión Interior
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p>
-                  Vive experiencias sensoriales que propagan la conexión con el
-                  interior y la sanación profunda a través de la vibración y el
-                  sonido.
-                </p>
-              </CardContent>
-            </Card>
+            {musicaMedicinaCards.map((card, index) => (
+              <Card
+                key={index}
+                className="m-4 w-full max-w-sm bg-[#0A1A2A] border-[#40E0D0] transition-transform hover:scale-110"
+              >
+                <CardHeader>
+                  <CardTitle className="text-[#D4AF37]">{card.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p>{card.content}</p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -210,7 +282,7 @@ function App() {
           ].map(({ title, image, link }, index) => (
             <Card
               key={index}
-              className="overflow-hidden transition-transform hover:scale-105 bg-[#0A1A2A] border-[#40E0D0]"
+              className="overflow-hidden transition-transform hover:scale-110 bg-[#0A1A2A] border-[#40E0D0]"
             >
               <a href={link} target="_blank" rel="noopener noreferrer">
                 <div className="relative">
