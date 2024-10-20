@@ -9,7 +9,7 @@ export interface IGenerarHashBody {
 
 export const apiGenerarHash = async (
   params: IGenerarHashBody,
-): Promise<Response> => {
+): Promise<string> => {
   const response = await fetch("/api/gen", {
     method: "POST",
     headers: {
@@ -22,7 +22,7 @@ export const apiGenerarHash = async (
     throw new Error(`HTTP error! status: ${response.status}`);
   }
 
-  return response;
+  return response.text();
 };
 
 export const useGenerarHash = (par: IGenerarHashBody) =>
