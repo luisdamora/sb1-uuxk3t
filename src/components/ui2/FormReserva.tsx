@@ -1,5 +1,6 @@
 import useDebounce from "@/hooks/useDebounce.ts";
 import { IProducto } from "@/interfaces/IProducto.ts";
+import { useRegistroComprador } from "@/services/apiRegistroComprador.ts";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
 import { generateUUID } from "@/utils/generateUUID.ts";
 import React, { FC, useEffect, useMemo, useState } from "react";
@@ -23,7 +24,20 @@ export const FormReserva: FC = (): React.ReactNode => {
   });
   const identificadorUUID = useMemo(() => generateUUID(), []);
   const precioActual = obtenerPrecioActual();
-  const isValidDebounce = useDebounce(isValid, 1500);
+
+  const {
+    mutate: mutateRegistro,
+    isSuccess: isSuccessRegistro,
+    isError: isErrorRegistro,
+    isPending: isPendingRegistro,
+  } = useRegistroComprador(identificadorUUID);
+
+  const isOkAll = useMemo(
+    () =>
+      isValid && isSuccessRegistro && !isErrorRegistro && !isPendingRegistro,
+    [isValid, isSuccessRegistro, isErrorRegistro, isPendingRegistro],
+  );
+  const isValidDebounce = useDebounce(isOkAll, 1500);
 
   const [data, setData] = useState<IProducto>({
     identificador: identificadorUUID,
@@ -43,10 +57,11 @@ export const FormReserva: FC = (): React.ReactNode => {
 
   useEffect(() => {
     console.log(dataDebounce);
+    mutateRegistro(dataDebounce);
   }, [dataDebounce]);
 
   useEffect(() => {
-    const subscription = watch((value, { name, type }) => {
+    const subscription = watch((value, { name }) => {
       // console.log(value, name, type);
       setData((prevData) => ({
         ...prevData,
@@ -141,7 +156,7 @@ export const FormReserva: FC = (): React.ReactNode => {
 
         <div className="flex justify-center">
           <div
-            className={`flex justify-center  ${!isValid ? "disabled:cursor-not-allowed opacity-50" : ""}`}
+            className={`flex justify-center  ${!isOkAll ? "disabled:cursor-not-allowed opacity-50" : ""}`}
           >
             <div style={{ display: isValidDebounce ? "block" : "none" }}>
               <script

@@ -1,5 +1,5 @@
 import { IProducto } from "@/interfaces/IProducto";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 
 /**
  * Sends a POST request to the specified webhook URL with the provided `IProducto` object as the request body.
@@ -35,8 +35,8 @@ export const apiRegistroComprador = async (
  * @param comprador - The `IProducto` object to be sent in the request body.
  * @returns A React Query hook that fetches the response from the API.
  */
-export const useRegistroComprador = (comprador: IProducto) =>
-  useQuery({
-    queryKey: ["registro-comprador", comprador.identificador],
-    queryFn: () => apiRegistroComprador(comprador),
+export const useRegistroComprador = (identificador: string) =>
+  useMutation({
+    mutationKey: ["registro-comprador", identificador],
+    mutationFn: (data: IProducto) => apiRegistroComprador(data),
   });
