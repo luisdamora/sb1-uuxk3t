@@ -51,11 +51,6 @@ export const FormReserva: FC = (): React.ReactNode => {
   });
   const dataDebounce = useDebounce(data, 1000);
 
-  const onSubmit: SubmitHandler<FormInputs> = (data) => {
-    console.log(data);
-    // Handle form submission here
-  };
-
   useEffect(() => {
     console.log(dataDebounce);
     mutateRegistro(dataDebounce);
@@ -100,6 +95,12 @@ export const FormReserva: FC = (): React.ReactNode => {
       }),
     [data.precio_total],
   );
+
+  const onSubmit: SubmitHandler<FormInputs> = (data) => {
+    console.log(data);
+    checkout.open();
+    // Handle form submission here
+  };
 
   return (
     <div className="container mx-auto px-4 py-10 bg-cyan-50 bg-opacity-10 rounded-lg shadow-lg w-full lg:w-1/3">
@@ -196,12 +197,7 @@ export const FormReserva: FC = (): React.ReactNode => {
             {/*  </button>*/}
             {/*</div>*/}
 
-            <button
-              className="bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-700 hover:to-red-600 text-white font-bold py-3 px-8 rounded-full"
-              onChange={() => {
-                checkout.open();
-              }}
-            >
+            <button className="bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-700 hover:to-red-600 text-white font-bold py-3 px-8 rounded-full">
               Pagar con <span className="font-black">Bold</span>
             </button>
           </div>
