@@ -88,6 +88,8 @@ function App() {
     [],
   );
 
+  const precioActual = useMemo(() => obtenerPrecioActual(), []);
+
   return (
     <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3] px-1">
       {/* Header */}
@@ -193,7 +195,7 @@ function App() {
             {pricingData.map((item, index) => (
               <div key={index} className="w-full sm:w-1/3 px-4 mb-8">
                 <div
-                  className={`bg-[#0A1A2A] border border-[#40E0D0] rounded-lg p-6 text-center ${item.etapa !== obtenerPrecioActual().tipo ? "opacity-50 cursor-not-allowed" : ""}`}
+                  className={`bg-[#0A1A2A] border border-[#40E0D0] rounded-lg p-6 text-center ${item.etapa !== precioActual.tipo ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
                   <h3 className="text-xl font-bold text-[#D4AF37] mb-4">
                     {item.title}
