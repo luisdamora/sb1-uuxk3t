@@ -1,20 +1,11 @@
+import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
 /**
  * A button component that can be used throughout the application.
  */
-import { Button } from '@/components/ui/button';
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import {
-  Youtube,
-  MapPin,
-  Instagram,
-} from 'lucide-react';
-import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { Instagram, MapPin, Youtube } from "lucide-react";
 
 /**
  * The main App component that renders the entire application.
@@ -28,12 +19,16 @@ function App() {
       {/*<header className="bg-[url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center pt-12 pb-32 text-center">*/}
       <header className="relative pt-12 pb-32 w-full overflow-hidden text-center">
         <video
-            className="absolute top-0 left-0 min-h-full min-w-full object-cover"
-            autoPlay
-            loop
-            muted
-            playsInline>
-          <source src="src/assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4" type="video/mp4" />
+          className="absolute top-0 left-0 min-h-full min-w-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source
+            src="src/assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4"
+            type="video/mp4"
+          />
         </video>
         <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-16">
           {/* <Sun className="mx-auto mb-6 h-24 w-24 text-[#D4AF37]" /> */}
@@ -68,11 +63,31 @@ function App() {
             vibración para una transformación colectiva a través de la Medicina
             facilitada por el Sonido.
           </p> */}
-          <p className="mb-6 text-lg">¡Prepárate para una experiencia transformadora de sonido y vibración en Sirio Live Sessions! 🎶✨</p>
-<p className="mb-6 text-lg">Este 9 de noviembre, sumérgete en una jornada de conexión interior con la grabación en vivo de <em>6 bandas de Música Medicina</em>, cuyas melodías sanadoras resonarán en el Domo Sirio de Santa Elena, Antioquia.  Acompaña a <strong>La Senda del Sonido, Aramara, Caro OS, Dabeiba, Kuna Yala</strong> y <em>TAMA</em> en este viaje sonoro que quedará plasmado en nuestro canal de YouTube.</p>
-<p className="mb-6 text-lg">Además de la grabación, te espera una <em>ceremonia de cacao</em> para abrir el corazón y un <em>viaje sonoro / sound healing</em> que te guiará hacia las profundidades de tu ser.</p>
+          <p className="mb-6 text-lg">
+            ¡Prepárate para una experiencia transformadora de sonido y vibración
+            en Sirio Live Sessions! 🎶✨
+          </p>
+          <p className="mb-6 text-lg">
+            Este 9 de noviembre, sumérgete en una jornada de conexión interior
+            con la grabación en vivo de <em>6 bandas de Música Medicina</em>,
+            cuyas melodías sanadoras resonarán en el Domo Sirio de Santa Elena,
+            Antioquia. Acompaña a{" "}
+            <strong>
+              La Senda del Sonido, Aramara, Caro OS, Dabeiba, Kuna Yala
+            </strong>{" "}
+            y <em>TAMA</em> en este viaje sonoro que quedará plasmado en nuestro
+            canal de YouTube.
+          </p>
+          <p className="mb-6 text-lg">
+            Además de la grabación, te espera una <em>ceremonia de cacao</em>{" "}
+            para abrir el corazón y un <em>viaje sonoro / sound healing</em> que
+            te guiará hacia las profundidades de tu ser.
+          </p>
 
-<p className="mb-6 text-lg">¡No te pierdas esta oportunidad única de vibrar alto y conectar con tu esencia a través de la música y la energía! 🪘🌿</p>
+          <p className="mb-6 text-lg">
+            ¡No te pierdas esta oportunidad única de vibrar alto y conectar con
+            tu esencia a través de la música y la energía! 🪘🌿
+          </p>
           <p className="flex items-center text-lg">
             <MapPin className="mr-2 text-[#40E0D0]" />
             LUGAR: Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
@@ -150,8 +165,9 @@ function App() {
       {/* YouTube Channel */}
       <section className="container mx-auto my-20 px-4">
         <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
-          NUESTRO CANAL EN YouTube
+          NUESTRO CANAL EN YOUTUBE
         </h2>
+
         <p className="mb-12 text-center text-xl">
           En este espacio encontrarás Música Medicina y los Artistas que
           sostienen esta transformación que estamos viviendo a través de la
@@ -160,24 +176,28 @@ function App() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
-              title: 'LARBOL',
+              title: "ARBOL",
               image:
-                'https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182348.jpg',
+                "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182348.jpg",
+              link: "https://youtu.be/IWihRGNvdnI?si=PKryC7doRK8qB3ob",
             },
             {
-              title: 'LA SEMILLA',
+              title: "LA SEMILLA",
               image:
-                'https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182323.jpg',
+                "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182323.jpg",
+              link: "https://youtu.be/J-83VdGcWyc?si=8hA-Rt22zWQQAW4k",
             },
             {
-              title: 'CLARIDAD',
+              title: "CLARIDAD",
               image:
-                'https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182300.jpg',
+                "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182300.jpg",
+              link: "https://youtu.be/ffS2YzjZY8Q?si=d4FoDiqEHevQalNj",
             },
             {
-              title: 'LA SELVA SE LEVANTA',
+              title: "LA SELVA SE LEVANTA",
               image:
-                'https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182159.jpg',
+                "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182159.jpg",
+              link: "https://youtu.be/pDwNu_eZbLk?si=QfWGe_XQipa3tVjU",
             },
           ].map(({ title, image }, index) => (
             <Card
@@ -193,13 +213,13 @@ function App() {
                 <h3 className="text-lg font-semibold text-[#D4AF37]">
                   {title}
                 </h3>
-                <p className="text-sm text-[#F5DEB3]">Artist Name</p>
+                {/*<p className="text-sm text-[#F5DEB3]">Artist Name</p>*/}
               </CardContent>
             </Card>
           ))}
         </div>
       </section>
-      <WhatsAppBubble/>
+      <WhatsAppBubble />
 
       {/* Footer */}
       <footer className="bg-[#0A1A2A] py-12 border-t border-[#40E0D0]">
@@ -223,12 +243,23 @@ function App() {
           </div>
           <Separator className="my-8 bg-[#40E0D0]" />
           <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
-            <p>&copy; Sirio Live Sessions © 2024. All rights reserved. Luis David Moreno</p>
+            <p>
+              &copy; Sirio Live Sessions © 2024. All rights reserved. Luis David
+              Moreno
+            </p>
             <div className="flex space-x-6">
-               <a href="https://www.youtube.com/@siriolivesessions" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.youtube.com/@siriolivesessions"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Youtube className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
               </a>
-              <a href="https://www.instagram.com/siriocasaestudio" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.instagram.com/siriocasaestudio"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Instagram className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
               </a>
               {/*<Facebook className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />*/}
