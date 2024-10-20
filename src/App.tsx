@@ -1,16 +1,20 @@
 import PageGracias from "@/PageGracias.tsx";
 import PageHome from "@/PageHome.tsx";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <PageHome />,
+  },
+  {
+    path: "/gracias",
+    element: <PageGracias />,
+  },
+]);
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<PageHome />} />
-        <Route path="/gracias" element={<PageGracias />} />
-      </Routes>
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
