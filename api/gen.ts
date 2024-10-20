@@ -11,7 +11,7 @@ enum BoldCheckoutEnvironment {
 }
 
 const isBoldEnvProdDev: BoldCheckoutEnvironment =
-  BoldCheckoutEnvironment.DEVELOPMENT;
+  BoldCheckoutEnvironment.PRODUCTION;
 
 // Función asincrónica para generar el hash SHA-256
 async function generateHash(cadena) {

@@ -26,4 +26,4 @@ export const VAR_BOLD_DEV: string =
  * Determines the current Bold Checkout environment, either DEVELOPMENT or PRODUCTION.
  */
 export const isBoldEnvProdDev: BoldCheckoutEnvironment =
-  BoldCheckoutEnvironment.DEVELOPMENT;
+  BoldCheckoutEnvironment.PRODUCTION;
