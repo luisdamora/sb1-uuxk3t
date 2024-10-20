@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "functions": {
+    "api/gen.ts": {
+      "runtime": "@vercel/node@3.2.23"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/gen",
+      "dest": "/api/gen.ts"
+    }
+  ]
+}
