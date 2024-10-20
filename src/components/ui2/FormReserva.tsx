@@ -1,5 +1,8 @@
+import useDebounce from "@/hooks/useDebounce.ts";
+import { IProducto } from "@/interfaces/IProducto.ts";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
-import React, { FC } from "react";
+import { generateUUID } from "@/utils/generateUUID.ts";
+import React, { FC, useEffect, useMemo, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 interface FormInputs {
@@ -18,13 +21,44 @@ export const FormReserva: FC = (): React.ReactNode => {
   } = useForm<FormInputs>({
     defaultValues: { cantidad: 1, celular: "", email: "", nombre: "" },
   });
-
+  const identificadorUUID = useMemo(() => generateUUID(), []);
   const precioActual = obtenerPrecioActual();
+  const isValidDebounce = useDebounce(isValid, 1500);
+
+  const [data, setData] = useState<IProducto>({
+    identificador: identificadorUUID,
+    nombre: "",
+    email: "",
+    celular: "",
+    precio_unidad: precioActual.valor,
+    cantidad: 1,
+    precio_total: precioActual.valor,
+  });
+  const dataDebounce = useDebounce(data, 1000);
 
   const onSubmit: SubmitHandler<FormInputs> = (data) => {
     console.log(data);
     // Handle form submission here
   };
+
+  useEffect(() => {
+    console.log(dataDebounce);
+  }, [dataDebounce]);
+
+  useEffect(() => {
+    const subscription = watch((value, { name, type }) => {
+      // console.log(value, name, type);
+      setData((prevData) => ({
+        ...prevData,
+        identificador: identificadorUUID,
+        [name as keyof IProducto]: value[name as keyof FormInputs],
+        precio_total: value.cantidad
+          ? value.cantidad * precioActual.valor
+          : precioActual.valor,
+      }));
+    });
+    return () => subscription.unsubscribe();
+  }, [watch, precioActual.valor]);
 
   return (
     <div className="container mx-auto px-4 py-10 bg-cyan-50 bg-opacity-10 rounded-lg shadow-lg w-full lg:w-1/3">
@@ -109,19 +143,13 @@ export const FormReserva: FC = (): React.ReactNode => {
           <div
             className={`flex justify-center  ${!isValid ? "disabled:cursor-not-allowed opacity-50" : ""}`}
           >
-            <div style={{ display: isValid ? "block" : "none" }}>
+            <div style={{ display: isValidDebounce ? "block" : "none" }}>
               <script
                 data-bold-button="dark-L"
                 data-api-key="LLAVE_DE_IDENTIDAD"
               ></script>
             </div>
-            <div style={{ display: isValid ? "none" : "block" }}>
-              {/*<Button*/}
-              {/*  type="submit"*/}
-              {/*  className="bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-4 px-8 text-xl"*/}
-              {/*>*/}
-              {/*  Ir a pagar*/}
-              {/*</Button>*/}
+            <div style={{ display: isValidDebounce ? "none" : "block" }}>
               <button className="bg-gradient-to-r from-blue-600 to-red-500 hover:from-blue-700 hover:to-red-600 text-white font-bold py-3 px-8 rounded-full">
                 Pagar con <span className="font-black">Bold</span>
               </button>
