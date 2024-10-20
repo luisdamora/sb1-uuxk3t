@@ -25,11 +25,7 @@ async function generateHash(cadena) {
   const hashArray = Array.from(new Uint8Array(hashBuffer));
 
   // Convertir cada byte en una representación hexadecimal y unirlos en una sola cadena
-  const hashHex = hashArray
-    .map((b) => b.toString(16).padStart(2, "0"))
-    .join("");
-
-  return hashHex;
+  return hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
 }
 
 export interface Transaction {
@@ -67,7 +63,7 @@ export default async (request: Request) => {
   }
 
   const { i: identificador, m: monto } = (await request.json()) as Transaction;
-  const cadenaConcatenada = `${identificador}${monto}${divisa}${getKeyEnv(isBoldEnvProdDev)}`;
+  const cadenaConcatenada = `${identificador}${monto.toFixed(0)}${divisa}${getKeyEnv(isBoldEnvProdDev)}`;
   const hashHex = await generateHash(cadenaConcatenada);
 
   return new Response(hashHex);
