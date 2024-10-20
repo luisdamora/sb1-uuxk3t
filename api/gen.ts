@@ -1,5 +1,5 @@
-import { isBoldEnvProdDev } from "../src/shared/constants";
-import { BoldCheckoutEnvironment } from "../src/types/BoldCheckout";
+import { isBoldEnvProdDev } from "@/shared/constants";
+import { BoldCheckoutEnvironment } from "@/types/BoldCheckout";
 
 /**
  * Configures the runtime for the Edge Function.
