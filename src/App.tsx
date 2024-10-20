@@ -1,3 +1,6 @@
+/**
+ * A button component that can be used throughout the application.
+ */
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -10,15 +13,29 @@ import {
   Youtube,
   MapPin,
   Instagram,
-  Facebook,
 } from 'lucide-react';
+import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
 
+/**
+ * The main App component that renders the entire application.
+ * It includes the header, next session details, music and conscious music sections, YouTube channel, and footer.
+ * The component is responsible for the overall layout and structure of the application.
+ */
 function App() {
   return (
     <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3]">
       {/* Header */}
-      <header className="bg-[url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center py-32 text-center">
-        <div className="bg-[#0A1A2A] bg-opacity-80 py-16">
+      {/*<header className="bg-[url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center pt-12 pb-32 text-center">*/}
+      <header className="relative pt-12 pb-32 w-full overflow-hidden text-center">
+        <video
+            className="absolute top-0 left-0 min-h-full min-w-full object-cover"
+            autoPlay
+            loop
+            muted
+            playsInline>
+          <source src="src/assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4" type="video/mp4" />
+        </video>
+        <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-16">
           {/* <Sun className="mx-auto mb-6 h-24 w-24 text-[#D4AF37]" /> */}
           <img
             src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/logo.png"
@@ -33,7 +50,7 @@ function App() {
             Somos la Banda Sonora del Nuevo Tiempo y la Nueva Humanidad
           </p>
           <p className="text-2xl font-semibold text-[#40E0D0]">
-            PRÓXIMA GRABACIÓN EN VIVO | 9 noviembre
+            PRÓXIMA EXPERIENCIA EN VIVO | 9 noviembre
           </p>
         </div>
       </header>
@@ -182,6 +199,7 @@ function App() {
           ))}
         </div>
       </section>
+      <WhatsAppBubble/>
 
       {/* Footer */}
       <footer className="bg-[#0A1A2A] py-12 border-t border-[#40E0D0]">
@@ -205,11 +223,15 @@ function App() {
           </div>
           <Separator className="my-8 bg-[#40E0D0]" />
           <div className="flex flex-col items-center justify-between space-y-4 sm:flex-row sm:space-y-0">
-            <p>&copy; Sirio Live Sessions © 2024. All rights reserved.</p>
+            <p>&copy; Sirio Live Sessions © 2024. All rights reserved. Luis David Moreno</p>
             <div className="flex space-x-6">
-              <Youtube className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
-              <Instagram className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
-              <Facebook className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
+               <a href="https://www.youtube.com/@siriolivesessions" target="_blank" rel="noopener noreferrer">
+                <Youtube className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
+              </a>
+              <a href="https://www.instagram.com/siriocasaestudio" target="_blank" rel="noopener noreferrer">
+                <Instagram className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />
+              </a>
+              {/*<Facebook className="h-6 w-6 text-[#D4AF37] hover:text-[#40E0D0]" />*/}
             </div>
           </div>
         </div>
