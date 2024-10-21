@@ -161,15 +161,14 @@ function PageHome3() {
             cuyas melodías sanadoras resonarán en el Domo Sirio de Santa Elena,
             Antioquia. Acompaña a{" "}
             <strong>Aramara, Caro OS, Dabeiba, Kuna Yala</strong> y{" "}
-            <em>TAMA</em> en este viaje sonoro que quedará plasmado en nuestro
-            canal de YouTube.
+            <strong>TAMA</strong> en este viaje sonoro que quedará plasmado en
+            nuestro canal de YouTube.
           </p>
           <p className="mb-6 text-lg">
             Además de la grabación, te espera una <em>ceremonia de cacao</em>{" "}
             para abrir el corazón y un <em>viaje sonoro / sound healing</em> que
             te guiará hacia las profundidades de tu ser.
           </p>
-
           <p className="mb-6 text-lg">
             ¡No te pierdas esta oportunidad única de vibrar alto y conectar con
             tu esencia a través de la música y la energía! 🪘🌿
