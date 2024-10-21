@@ -153,40 +153,86 @@ function PageHome4() {
           </p> */}
           <p className="mb-6 text-lg">
             <strong>
-              ¡Prepárate para una experiencia transformadora en Sirio Live
-              Sessions! 🎶✨
+              ¡Vive una experiencia transformadora con el sonido! 🎶✨ Sirio
+              Live Sessions
             </strong>
           </p>
 
           <p className="mb-6 text-lg">
-            El <strong>9 de noviembre</strong>, conéctate con la grabación en
-            vivo de <em>6 bandas de Música Medicina</em> en el{" "}
-            <strong>Domo Sirio de Santa Elena, Antioquia</strong>. Acompaña a{" "}
-            <strong>Aramara, Caro OS, Dabeiba, Kuna Yala</strong> y{" "}
-            <strong>TAMA</strong> en este viaje sonoro que quedará en nuestro
-            canal de YouTube.
+            Este <strong>9 de noviembre</strong>, nos sumergimos en una jornada
+            de conexión interior a través de la vibración del sonido.
+          </p>
+
+          <ul className="mb-6 text-lg list-disc list-inside">
+            <li>🤎 Ceremonia de cacao para abrir tu corazón</li>
+            <li>
+              ✨ Viaje sonoro / Soundhealing para navegar en las profundidades
+              de tu ser
+            </li>
+            <li>🎙 Grabación en vivo de 5 artistas locales</li>
+          </ul>
+
+          <p className="mb-6 text-lg">
+            <strong>¡Camina con nosotros La Senda del Sonido! 💗🌠</strong>
           </p>
 
           <p className="mb-6 text-lg">
-            Disfruta además de una <em>ceremonia de cacao</em> y un{" "}
-            <em>viaje sonoro / sound healing</em> hacia las profundidades de tu
-            ser.
+            Acompaña a <strong>@aramaramusica</strong> |{" "}
+            <strong>@caro.os.om</strong> | <strong>@dabeiba.musica</strong> |
+            <strong>@kunnayala</strong> | <strong>@tama.ancestral</strong> en
+            esta experiencia única que quedará plasmada en nuestro canal de
+            YouTube 🎦
           </p>
 
           <p className="mb-6 text-lg">
-            <strong>
-              ¡No te pierdas esta oportunidad única de vibrar alto y conectar
-              con tu esencia! 🪘🌿
-            </strong>
+            <strong>📆 Sábado 9 nov.</strong>
+          </p>
+
+          <p className="mb-6 text-lg">
+            <strong>🕓 Hora: 4:00 p.m. a 10:00 p.m.</strong>
           </p>
 
           <p className="flex items-center text-lg items-center px-4 flex-wrap ">
             <MapPin className="mr-2 text-[#40E0D0]" />
             <strong>LUGAR: </strong>
-            <span>
-              Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
-            </span>
+            <span>Domo SIRIO, en Santa Elena - Antioquia</span>
           </p>
+          {/*<p className="mb-6 text-lg">*/}
+          {/*  <strong>*/}
+          {/*    ¡Prepárate para una experiencia transformadora en Sirio Live*/}
+          {/*    Sessions! 🎶✨*/}
+          {/*  </strong>*/}
+          {/*</p>*/}
+
+          {/*<p className="mb-6 text-lg">*/}
+          {/*  El <strong>9 de noviembre</strong>, conéctate con la grabación en*/}
+          {/*  vivo de <em>6 bandas de Música Medicina</em> en el{" "}*/}
+          {/*  <strong>Domo Sirio de Santa Elena, Antioquia</strong>. Acompaña a{" "}*/}
+          {/*  <strong>Aramara, Caro OS, Dabeiba, Kuna Yala</strong> y{" "}*/}
+          {/*  <strong>TAMA</strong> en este viaje sonoro que quedará en nuestro*/}
+          {/*  canal de YouTube.*/}
+          {/*</p>*/}
+
+          {/*<p className="mb-6 text-lg">*/}
+          {/*  Disfruta además de una <em>ceremonia de cacao</em> y un{" "}*/}
+          {/*  <em>viaje sonoro / sound healing</em> hacia las profundidades de tu*/}
+          {/*  ser.*/}
+          {/*</p>*/}
+
+          {/*<p className="mb-6 text-lg">*/}
+          {/*  <strong>*/}
+          {/*    ¡No te pierdas esta oportunidad única de vibrar alto y conectar*/}
+          {/*    con tu esencia! 🪘🌿*/}
+          {/*  </strong>*/}
+          {/*</p>*/}
+
+          {/*<p className="flex items-center text-lg items-center px-4 flex-wrap ">*/}
+          {/*  <MapPin className="mr-2 text-[#40E0D0]" />*/}
+          {/*  <strong>LUGAR: </strong>*/}
+          {/*  <span>*/}
+          {/*    Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia*/}
+          {/*  </span>*/}
+          {/*</p>*/}
 
           <p className="flex items-center text-lg pl-12 my-2">
             <strong className="pr-2">CONTACTO: </strong>{" "}
