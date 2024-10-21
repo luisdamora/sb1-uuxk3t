@@ -99,7 +99,7 @@ function PageHome3() {
     <div className={`min-h-screen bg-[#0A1A2A] text-[${COLORS.TEXT}] px-1`}>
       {/* Header */}
       {/*<header className="bg-[url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center pt-12 pb-32 text-center">*/}
-      <header className="relative pt-20 pb-20 w-full overflow-hidden text-center">
+      <header className="relative  w-full overflow-hidden text-center">
         <video
           className="absolute top-0 left-0 min-h-full min-w-full object-cover"
           autoPlay
@@ -110,7 +110,7 @@ function PageHome3() {
           <source src={videoHeader} type="video/mp4" />
           {/*<source src="" type="video/mp4" />*/}
         </video>
-        <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-8 px-2">
+        <div className="relative z-10 bg-[#0A1A2A] bg-opacity-60 py-8 px-2">
           <img
             // src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/logo.png"
             src={imagenLogoSirio}
