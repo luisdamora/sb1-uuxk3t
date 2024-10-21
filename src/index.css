@@ -10,7 +10,7 @@
     --card-foreground: 43 77% 91%;
     --popover: 215 45% 10%;
     --popover-foreground: 43 77% 91%;
-    --primary: 43 65% 52%;
+    --primary: 209 90% 60%;
     --primary-foreground: 215 45% 10%;
     --secondary: 174 70% 56%;
     --secondary-foreground: 215 45% 10%;
@@ -26,6 +26,30 @@
     --radius: 0.5rem;
   }
 }
+/*@layer base {*/
+/*  :root {*/
+/*    --background: 215 45% 10%;*/
+/*    --foreground: 43 77% 91%;*/
+/*    --card: 215 45% 10%;*/
+/*    --card-foreground: 43 77% 91%;*/
+/*    --popover: 215 45% 10%;*/
+/*    --popover-foreground: 43 77% 91%;*/
+/*    --primary: 43 65% 52%;*/
+/*    --primary-foreground: 215 45% 10%;*/
+/*    --secondary: 174 70% 56%;*/
+/*    --secondary-foreground: 215 45% 10%;*/
+/*    --muted: 215 45% 20%;*/
+/*    --muted-foreground: 43 77% 81%;*/
+/*    --accent: 174 70% 56%;*/
+/*    --accent-foreground: 215 45% 10%;*/
+/*    --destructive: 0 62.8% 30.6%;*/
+/*    --destructive-foreground: 43 77% 91%;*/
+/*    --border: 174 70% 56%;*/
+/*    --input: 174 70% 56%;*/
+/*    --ring: 43 65% 52%;*/
+/*    --radius: 0.5rem;*/
+/*  }*/
+/*}*/
 
 @layer base {
   * {
@@ -38,14 +62,13 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
