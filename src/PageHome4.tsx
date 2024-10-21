@@ -180,10 +180,12 @@ function PageHome4() {
             </strong>
           </p>
 
-          <p className="flex items-center text-lg px-4">
+          <p className="flex items-center text-lg items-center px-4 flex-wrap ">
             <MapPin className="mr-2 text-[#40E0D0]" />
-            <strong>LUGAR:</strong> Domo Sirio, Carrera 24 este #1 BB 376, Santa
-            Elena, Antioquia
+            <strong>LUGAR:</strong>
+            <span>
+              Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
+            </span>
           </p>
 
           <p className="flex items-center text-lg pl-12 my-2">
