@@ -16,17 +16,13 @@ import imagenCancionSelva from "@assets/images/musicos/cancion_la_selva.jpg";
 import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg";
 
 import { FormReserva } from "@/components/ui2/FormReserva.tsx";
+import { COLORS } from "@/shared/colors";
 import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
 import { EEtapa, IEtapa } from "@/types/IEtapa.ts";
 import videoHeader from "@assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4";
 import { Instagram, MapPin, Youtube } from "lucide-react";
 import { useCallback, useMemo, useRef, useState } from "react";
 
-/**
- * The main App component that renders the entire application.
- * It includes the header, next session details, music and conscious music sections, YouTube channel, and footer.
- * The component is responsible for the overall layout and structure of the application.
- */
 function PageHome2() {
   const sectionReservaRef = useRef<HTMLDivElement>(null);
 
@@ -34,7 +30,6 @@ function PageHome2() {
   const handleReserva = useCallback(() => {
     setOpenSectionReserva(true);
 
-    // set timeout focus
     setTimeout(() => {
       if (sectionReservaRef.current) {
         sectionReservaRef.current.scrollIntoView({ behavior: "smooth" });
@@ -95,9 +90,10 @@ function PageHome2() {
   const precioActual = useMemo(() => obtenerPrecioActual(), []);
 
   return (
-    <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3] px-1">
+    <div
+      className={`min-h-screen bg-[${COLORS.BACKGROUND}] text-[${COLORS.TEXT}] px-1`}
+    >
       {/* Header */}
-      {/*<header className="bg-[url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center pt-12 pb-32 text-center">*/}
       <header className="relative pt-20 pb-20 w-full overflow-hidden text-center">
         <video
           className="absolute top-0 left-0 min-h-full min-w-full object-cover"
@@ -107,24 +103,23 @@ function PageHome2() {
           playsInline
         >
           <source src={videoHeader} type="video/mp4" />
-          {/*<source src="" type="video/mp4" />*/}
         </video>
-        <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-8 px-2">
-          {/* <Sun className="mx-auto mb-6 h-24 w-24 text-[#D4AF37]" /> */}
+        <div
+          className={`relative z-10 bg-[${COLORS.BACKGROUND}] bg-opacity-80 py-8 px-2`}
+        >
           <img
-            // src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/logo.png"
             src={imagenLogoSirio}
             alt="Logo"
             className="mx-auto mb-6 h-56 w-56"
           />
-          <h1 className="mb-3 text-5xl font-bold text-[#D4AF37]">
+          <h1 className={`mb-3 text-5xl font-bold text-[${COLORS.PRIMARY}]`}>
             SIRIO LIVE SESSIONS
           </h1>
           <h2 className="mb-6 text-3xl font-light">La Senda del Sonido</h2>
           <p className="mb-10 text-xl">
             Somos la Banda Sonora del Nuevo Tiempo y la Nueva Humanidad
           </p>
-          <p className="text-2xl font-semibold text-[#40E0D0]">
+          <p className={`text-2xl font-semibold text-[${COLORS.SECONDARY}]`}>
             PRÓXIMA EXPERIENCIA EN VIVO | 9 Noviembre
           </p>
         </div>
@@ -133,16 +128,10 @@ function PageHome2() {
       {/* Next Session */}
       <section className="container mx-auto my-10 flex flex-wrap items-center justify-between px-4">
         <div className="w-full lg:w-1/2">
-          <h2 className="mb-6 text-4xl font-bold text-[#D4AF37]">
+          <h2 className={`mb-6 text-4xl font-bold text-[${COLORS.PRIMARY}]`}>
             PRÓXIMO SIRIO LIVE SESSION | 9 Nov
           </h2>
 
-          {/* <p className="mb-6 text-lg">
-            Grabación en Vivo de Música de Sanación y otras experiencias
-            musicales extraordinarias, que también involucran el diseño y la
-            vibración para una transformación colectiva a través de la Medicina
-            facilitada por el Sonido.
-          </p> */}
           <p className="mb-6 text-lg">
             ¡Prepárate para una experiencia transformadora de sonido y vibración
             en Sirio Live Sessions! 🎶✨
@@ -167,7 +156,7 @@ function PageHome2() {
             tu esencia a través de la música y la energía! 🪘🌿
           </p>
           <p className="flex items-center text-lg px-4">
-            <MapPin className="mr-2 text-[#40E0D0]" />
+            <MapPin className={`mr-2 text-[${COLORS.SECONDARY}]`} />
             LUGAR: Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
           </p>
           <p className="flex items-center text-lg pl-12 my-2">
@@ -183,7 +172,7 @@ function PageHome2() {
           </p>
           <div className="flex justify-center">
             <Button
-              className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-16 text-2xl"
+              className={`mt-9 bg-[${COLORS.PRIMARY}] text-[${COLORS.BACKGROUND}] hover:bg-[${COLORS.SECONDARY}] py-8 px-16 text-2xl`}
               onClick={handleReserva}
             >
               Reserva tu lugar
@@ -199,22 +188,28 @@ function PageHome2() {
         </div>
       </section>
 
-      <section className="bg-[#0A1A2A] py-10">
+      <section className={`bg-[${COLORS.BACKGROUND}] py-10`}>
         <div className="container mx-auto px-12">
-          <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
+          <h2
+            className={`mb-10 text-center text-4xl font-bold text-[${COLORS.PRIMARY}]`}
+          >
             Fechas de Lanzamiento y Precios
           </h2>
           <div className="flex flex-wrap justify-center">
             {pricingData.map((item, index) => (
               <div key={index} className="w-full sm:w-1/3 px-4 mb-8">
                 <div
-                  className={`bg-[#0A1A2A] border border-[#40E0D0] rounded-lg p-6 text-center ${item.etapa !== precioActual.tipo ? "opacity-50 cursor-not-allowed" : ""}`}
+                  className={`bg-[${COLORS.BACKGROUND}] border border-[${COLORS.SECONDARY}] rounded-lg p-6 text-center ${item.etapa !== precioActual.tipo ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
-                  <h3 className="text-xl font-bold text-[#D4AF37] mb-4">
+                  <h3
+                    className={`text-xl font-bold text-[${COLORS.PRIMARY}] mb-4`}
+                  >
                     {item.title}
                   </h3>
                   <p className="text-lg mb-2">Fecha límite: {item.deadline}</p>
-                  <p className="text-2xl font-bold text-[#40E0D0]">
+                  <p
+                    className={`text-2xl font-bold text-[${COLORS.SECONDARY}]`}
+                  >
                     {item.price}
                   </p>
                 </div>
@@ -223,7 +218,7 @@ function PageHome2() {
           </div>
           <div className="flex justify-center">
             <Button
-              className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-12 text-2xl mx-2"
+              className={`mt-9 bg-[${COLORS.PRIMARY}] text-[${COLORS.BACKGROUND}] hover:bg-[${COLORS.SECONDARY}] py-8 px-12 text-2xl mx-2`}
               onClick={handleReserva}
             >
               COMPRA TUS BOLETAS
@@ -242,9 +237,11 @@ function PageHome2() {
       </section>
 
       {/* Música Medicina y Consciente */}
-      <section className="bg-[#0A1A2A] py-10">
+      <section className={`bg-[${COLORS.BACKGROUND}] py-10`}>
         <div className="container mx-auto px-4">
-          <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
+          <h2
+            className={`mb-10 text-center text-4xl font-bold text-[${COLORS.PRIMARY}]`}
+          >
             Música Medicina y Consciente
           </h2>
           <p className="mb-12 text-center text-xl">
@@ -256,10 +253,12 @@ function PageHome2() {
             {musicaMedicinaCards.map((card, index) => (
               <Card
                 key={index}
-                className="m-4 w-full max-w-sm bg-[#0A1A2A] border-[#40E0D0] transition-transform hover:scale-110"
+                className={`m-4 w-full max-w-sm bg-[${COLORS.BACKGROUND}] border-[${COLORS.SECONDARY}] transition-transform hover:scale-110`}
               >
                 <CardHeader>
-                  <CardTitle className="text-[#D4AF37]">{card.title}</CardTitle>
+                  <CardTitle className={`text-[${COLORS.PRIMARY}]`}>
+                    {card.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>{card.content}</p>
@@ -272,7 +271,9 @@ function PageHome2() {
 
       {/* YouTube Channel */}
       <section className="container mx-auto my-10 px-4">
-        <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
+        <h2
+          className={`mb-10 text-center text-4xl font-bold text-[${COLORS.PRIMARY}]`}
+        >
           NUESTRO CANAL EN YOUTUBE
         </h2>
 
@@ -286,19 +287,16 @@ function PageHome2() {
             {
               title: "ARBOL",
               image: imagenCancionArbol,
-              // "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182348.jpg",
               link: "https://youtu.be/IWihRGNvdnI?si=PKryC7doRK8qB3ob",
             },
             {
               title: "LA SEMILLA",
               image: imagenCancionSemilla,
-              // "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182323.jpg",
               link: "https://youtu.be/J-83VdGcWyc?si=8hA-Rt22zWQQAW4k",
             },
             {
               title: "CLARIDAD",
               image: imagenCancionClaridad,
-              // "https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/IMG_20240726_182300.jpg",
               link: "https://youtu.be/ffS2YzjZY8Q?si=d4FoDiqEHevQalNj",
             },
             {
