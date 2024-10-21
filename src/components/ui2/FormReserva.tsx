@@ -106,7 +106,8 @@ export const FormReserva: FC = (): React.ReactNode => {
 
   return (
     <div className="container mx-auto px-4 py-10 bg-cyan-50 bg-opacity-10 rounded-lg shadow-lg w-full lg:w-1/3">
-      <h2 className="mb-8 text-center text-3xl font-bold text-[#D4AF37]">
+      {/*<h2 className="mb-8 text-center text-3xl font-bold text-[#D4AF37]">*/}
+      <h2 className="mb-8 text-center text-3xl font-bold custom-primary">
         Reserva tu lugar
       </h2>
       <form className="max-w-md mx-auto" onSubmit={handleSubmit(onSubmit)}>

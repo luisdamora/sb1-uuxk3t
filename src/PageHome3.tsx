@@ -1,9 +1,13 @@
-import {IconYoutube} from "@/components/mine/IconYoutube.tsx";
+import { IconYoutube } from "@/components/mine/IconYoutube.tsx";
 import WhatsAppBubble from "@/components/mine/WhatsAppBubble.tsx";
-import {Button} from "@/components/ui/button";
-import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card";
-import {Separator} from "@/components/ui/separator";
-import {VAR_EMAIL_CONTACT, VAR_WHATSAPP_PHONE, VAR_WHATSAPP_PHONE_TEXT,} from "@/shared/constants.ts";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import {
+  VAR_EMAIL_CONTACT,
+  VAR_WHATSAPP_PHONE,
+  VAR_WHATSAPP_PHONE_TEXT,
+} from "@/shared/constants.ts";
 import imagenLivePost from "@assets/images/live_9_nov_.jpg";
 import imagenLogoSirio from "@assets/images/logo.png";
 import imagenCancionArbol from "@assets/images/musicos/cancion_arbol.jpg";
@@ -11,12 +15,13 @@ import imagenCancionClaridad from "@assets/images/musicos/cancion_claridad.jpg";
 import imagenCancionSelva from "@assets/images/musicos/cancion_la_selva.jpg";
 import imagenCancionSemilla from "@assets/images/musicos/cancion_la_semilla.jpg";
 
-import {FormReserva} from "@/components/ui2/FormReserva.tsx";
-import {obtenerPrecioActual} from "@/shared/obtenerPrecioActual.ts";
-import {EEtapa, IEtapa} from "@/types/IEtapa.ts";
+import { FormReserva } from "@/components/ui2/FormReserva.tsx";
+import { COLORS } from "@/shared/colors.ts";
+import { obtenerPrecioActual } from "@/shared/obtenerPrecioActual.ts";
+import { EEtapa, IEtapa } from "@/types/IEtapa.ts";
 import videoHeader from "@assets/videos/1926295-hd_1920_1080_25fps_tiny.mp4";
-import {Instagram, MapPin, Youtube} from "lucide-react";
-import {useCallback, useMemo, useRef, useState} from "react";
+import { Instagram, MapPin, Youtube } from "lucide-react";
+import { useCallback, useMemo, useRef, useState } from "react";
 
 /**
  * The main App component that renders the entire application.
@@ -91,7 +96,7 @@ function PageHome3() {
   const precioActual = useMemo(() => obtenerPrecioActual(), []);
 
   return (
-    <div className="min-h-screen bg-[#0A1A2A] text-[#F5DEB3] px-1">
+    <div className={`min-h-screen bg-[#0A1A2A] text-[${COLORS.TEXT}] px-1`}>
       {/* Header */}
       {/*<header className="bg-[url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center pt-12 pb-32 text-center">*/}
       <header className="relative pt-20 pb-20 w-full overflow-hidden text-center">
@@ -106,30 +111,37 @@ function PageHome3() {
           {/*<source src="" type="video/mp4" />*/}
         </video>
         <div className="relative z-10 bg-[#0A1A2A] bg-opacity-80 py-8 px-2">
-          {/* <Sun className="mx-auto mb-6 h-24 w-24 text-[#D4AF37]" /> */}
           <img
             // src="https://lives.siriocasaestudio.com/wp-content/uploads/2024/07/logo.png"
             src={imagenLogoSirio}
             alt="Logo"
             className="mx-auto mb-6 h-56 w-56"
           />
-          <h1 className="mb-3 text-5xl font-bold text-[#D4AF37]">
+          <h1 className={`mb-3 text-5xl font-bold custom-primary`}>
             SIRIO LIVE SESSIONS
           </h1>
           <h2 className="mb-6 text-3xl font-light">La Senda del Sonido</h2>
           <p className="mb-10 text-xl">
             Somos la Banda Sonora del Nuevo Tiempo y la Nueva Humanidad
           </p>
-          <p className="text-2xl font-semibold text-[#40E0D0]">
+          <p className={`text-2xl font-semibold custom-secondary`}>
             PRÓXIMA EXPERIENCIA EN VIVO | 9 Noviembre
           </p>
+          <div className="flex justify-center">
+            <Button
+              className={`mt-9 custom-background text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-36 text-2xl`}
+              onClick={handleReserva}
+            >
+              Reserva tu lugar
+            </Button>
+          </div>
         </div>
       </header>
 
       {/* Next Session */}
       <section className="container mx-auto my-10 flex flex-wrap items-center justify-between px-4">
         <div className="w-full lg:w-1/2">
-          <h2 className="mb-6 text-4xl font-bold text-[#D4AF37]">
+          <h2 className={`mb-6 text-4xl font-bold custom-primary`}>
             PRÓXIMO SIRIO LIVE SESSION | 9 Nov
           </h2>
 
@@ -179,7 +191,7 @@ function PageHome3() {
           </p>
           <div className="flex justify-center">
             <Button
-              className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-16 text-2xl"
+              className={`mt-9 custom-background text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-16 text-2xl`}
               onClick={handleReserva}
             >
               Reserva tu lugar
@@ -197,7 +209,7 @@ function PageHome3() {
 
       <section className="bg-[#0A1A2A] py-10">
         <div className="container mx-auto px-12">
-          <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
+          <h2 className="mb-10 text-center text-4xl font-bold custom-primary">
             Fechas de Lanzamiento y Precios
           </h2>
           <div className="flex flex-wrap justify-center">
@@ -206,11 +218,13 @@ function PageHome3() {
                 <div
                   className={`bg-[#0A1A2A] border border-[#40E0D0] rounded-lg p-6 text-center ${item.etapa !== precioActual.tipo ? "opacity-50 cursor-not-allowed" : ""}`}
                 >
-                  <h3 className="text-xl font-bold text-[#D4AF37] mb-4">
+                  <h3 className="text-xl font-bold custom-secondary mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-lg mb-2">Fecha límite: {item.deadline}</p>
-                  <p className="text-2xl font-bold text-[#40E0D0]">
+                  <p className="text-lg mb-2 font-semibold">
+                    Fecha límite: {item.deadline}
+                  </p>
+                  <p className="text-2xl font-bold custom-secondary">
                     {item.price}
                   </p>
                 </div>
@@ -219,7 +233,8 @@ function PageHome3() {
           </div>
           <div className="flex justify-center">
             <Button
-              className="mt-9 bg-[#D4AF37] text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-12 text-2xl mx-2"
+              // className="mt-9 custom-background text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-12 text-2xl mx-2"
+              className="mt-9 custom-background text-[#0A1A2A] hover:bg-[#40E0D0] py-8 px-12 text-2xl mx-2"
               onClick={handleReserva}
             >
               COMPRA TUS BOLETAS
@@ -240,7 +255,7 @@ function PageHome3() {
       {/* Música Medicina y Consciente */}
       <section className="bg-[#0A1A2A] py-10">
         <div className="container mx-auto px-4">
-          <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
+          <h2 className="mb-10 text-center text-4xl font-bold custom-primary">
             Música Medicina y Consciente
           </h2>
           <p className="mb-12 text-center text-xl">
@@ -255,7 +270,9 @@ function PageHome3() {
                 className="m-4 w-full max-w-sm bg-[#0A1A2A] border-[#40E0D0] transition-transform hover:scale-110"
               >
                 <CardHeader>
-                  <CardTitle className="text-[#D4AF37]">{card.title}</CardTitle>
+                  <CardTitle className="custom-secondary">
+                    {card.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <p>{card.content}</p>
@@ -268,7 +285,7 @@ function PageHome3() {
 
       {/* YouTube Channel */}
       <section className="container mx-auto my-10 px-4">
-        <h2 className="mb-10 text-center text-4xl font-bold text-[#D4AF37]">
+        <h2 className="mb-10 text-center text-4xl font-bold custom-primary">
           NUESTRO CANAL EN YOUTUBE
         </h2>
 
@@ -320,7 +337,7 @@ function PageHome3() {
                   </div>
                 </div>
                 <CardContent className="p-4">
-                  <h3 className="text-lg font-semibold text-[#D4AF37]">
+                  <h3 className="text-lg font-semibold custom-secondary">
                     {title}
                   </h3>
                   {/*<p className="text-sm text-[#F5DEB3]">Artist Name</p>*/}
@@ -337,7 +354,7 @@ function PageHome3() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between">
             <div>
-              <h3 className="mb-3 text-2xl font-bold text-[#D4AF37]">
+              <h3 className="mb-3 text-2xl font-bold custom-primary">
                 Sirio Live Sessions
               </h3>
               <p className="text-lg">
@@ -345,7 +362,7 @@ function PageHome3() {
               </p>
             </div>
             <div className="mt-6 lg:mt-0">
-              <h4 className="mb-3 text-xl font-semibold text-[#D4AF37]">
+              <h4 className="mb-3 text-xl font-semibold custom-secondary">
                 Contacto
               </h4>
 

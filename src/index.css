@@ -5,7 +5,8 @@
 @layer base {
   :root {
     --background: 215 45% 10%;
-    --foreground: 43 77% 91%;
+    /*--foreground: 43 77% 91%;*/
+    --foreground: 0 0% 100%;
     --card: 215 45% 10%;
     --card-foreground: 43 77% 91%;
     --popover: 215 45% 10%;
@@ -71,4 +72,29 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@layer components {
+  .custom-background {
+    @apply bg-[#0A1A2A];
+  }
+  .custom-text {
+    @apply text-[#d8d8d8];
+  }
+  .custom-primary {
+    @apply text-[#4396cf];
+  }
+  .custom-secondary {
+    /*@apply text-[#337cae];*/
+    /*@apply text-[#4b8cb8];*/
+    @apply text-[#6babd6];
+  }
+  .custom-border {
+    @apply border-[#4396cf];
+  }
+  .custom-highlight {
+    @apply bg-[#40E0D0];
+    /*@apply bg-[#3ea7c9];*/
+    /*@apply bg-[#ffffff];*/
+  }
 }
