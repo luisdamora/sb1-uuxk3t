@@ -182,7 +182,7 @@ function PageHome4() {
 
           <p className="flex items-center text-lg items-center px-4 flex-wrap ">
             <MapPin className="mr-2 text-[#40E0D0]" />
-            <strong>LUGAR:</strong>
+            <strong>LUGAR: </strong>
             <span>
               Domo Sirio, Carrera 24 este #1 BB 376, Santa Elena, Antioquia
             </span>
